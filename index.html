@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Stacu</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #e94560;
+      text-transform: uppercase;
+    }
+
+    header p.tagline {
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      color: #a8b2d8;
+    }
+
+    main {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem 1.5rem;
+    }
+
+    main p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ccd6f6;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.85rem 2.5rem;
+      background-color: #e94560;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta:hover {
+      background-color: #c73652;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1.5rem;
+      font-size: 0.875rem;
+      color: #8892b0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #e94560;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stacu</h1>
+    <p class="tagline">Something that anyone can use</p>
+  </header>
+
+  <main>
+    <p>
+      Welcome to <strong>Stacu</strong> — your go-to platform built for everyone.
+      We're getting things ready for you. Stay tuned for what's coming next.
+    </p>
+    <a class="cta" href="mailto:hello@stacu.co.za">Get in Touch</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <a href="https://www.stacu.co.za">www.stacu.co.za</a>. All rights reserved.</p>
+  </footer>
+</body>
+</html>
