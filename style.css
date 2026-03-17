@@ -7,51 +7,56 @@ body {
 
 /* HERO */
 .hero {
-  padding: 60px 20px;
   text-align: center;
+  padding: 100px 20px;
   background: linear-gradient(135deg, #6c5ce7, #fd79a8);
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
 }
 
 /* SECTION */
 .section {
-  padding: 25px 15px;
+  padding: 60px 20px;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.section-header h2 {
-  font-size: 18px;
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 /* CARDS */
+.cards {
+  display: flex;
+  gap: 15px;
+}
+
 .card {
-  width: 160px;
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* PLACEHOLDER */
+.placeholder {
   height: 200px;
   background: #1e293b;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
+  border-radius: 12px;
 }
 
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Placeholder look */
-.placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #334155, #1e293b);
-}
-
-/* SWIPER */
-.swiper {
-  padding-bottom: 10px;
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 80px;
+  background: #111827;
 }
