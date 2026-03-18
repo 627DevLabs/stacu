@@ -1,27 +1,16 @@
-function getNextFriday() {
-  const now = new Date();
-  const day = now.getDay(); // 0=Sun, 5=Fri
-
-  let diff = (5 - day + 7) % 7;
-
-  // if today is Friday, go to NEXT Friday
-  if (diff === 0) diff = 7;
-
-  const nextFriday = new Date();
-  nextFriday.setDate(now.getDate() + diff);
-  nextFriday.setHours(0, 0, 0, 0);
-
-  return nextFriday;
-}
-
-const targetDate = getNextFriday();
+// 🎯 SET LAUNCH DATE
+const targetDate = new Date("March 29, 2026 00:00:00");
 
 function updateCountdown() {
   const now = new Date();
   const diff = targetDate - now;
 
+  const timer = document.getElementById("timer");
+
+  if (!timer) return;
+
   if (diff <= 0) {
-    document.getElementById("timer").innerText = "🚀 We are LIVE!";
+    timer.innerHTML = "🚀 We are LIVE!";
     return;
   }
 
@@ -30,9 +19,13 @@ function updateCountdown() {
     (diff / (1000 * 60 * 60)) % 24
   );
 
-  document.getElementById("timer").innerText =
-    `${days} days / ${hours} hours`;
+  // ✅ YOUR CUSTOM FORMAT
+  timer.innerHTML =
+    `<span>${days}d</span> : <span>${hours}h</span>`;
 }
 
+// Run immediately
 updateCountdown();
-setInterval(updateCountdown, 60000); // update every minute
+
+// Update every minute
+setInterval(updateCountdown, 60000);
