@@ -1,55 +1,38 @@
-const categories = [
-  "CV / Resume",
-  "Business Card",
-  "Business Profile",
-  "Website / App UI",
-  "Poster / Flyer",
-  "Social Media",
-  "Presentation",
-  "Video",
-  "Logo",
-  "Portfolio"
-];
+function getNextFriday() {
+  const now = new Date();
+  const day = now.getDay(); // 0=Sun, 5=Fri
 
-const content = document.getElementById("content");
+  let diff = (5 - day + 7) % 7;
 
-categories.forEach((category, index) => {
-  const section = document.createElement("div");
-  section.className = "section";
+  // if today is Friday, go to NEXT Friday
+  if (diff === 0) diff = 7;
 
-  section.innerHTML = `
-    <div class="section-header">
-      <h2>${category}</h2>
-      <span>View All →</span>
-    </div>
+  const nextFriday = new Date();
+  nextFriday.setDate(now.getDate() + diff);
+  nextFriday.setHours(0, 0, 0, 0);
 
-    <div class="swiper swiper${index}">
-      <div class="swiper-wrapper">
-        ${generateCards()}
-      </div>
-    </div>
-  `;
+  return nextFriday;
+}
 
-  content.appendChild(section);
+const targetDate = getNextFriday();
 
-  new Swiper(`.swiper${index}`, {
-    slidesPerView: 2.3,
-    spaceBetween: 12,
-  });
-});
+function updateCountdown() {
+  const now = new Date();
+  const diff = targetDate - now;
 
-function generateCards() {
-  let cards = "";
-
-  for (let i = 0; i < 8; i++) {
-    cards += `
-      <div class="swiper-slide">
-        <div class="card">
-          <div class="placeholder"></div>
-        </div>
-      </div>
-    `;
+  if (diff <= 0) {
+    document.getElementById("timer").innerText = "🚀 We are LIVE!";
+    return;
   }
 
-  return cards;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (diff / (1000 * 60 * 60)) % 24
+  );
+
+  document.getElementById("timer").innerText =
+    `${days} days / ${hours} hours`;
 }
+
+updateCountdown();
+setInterval(updateCountdown, 60000); // update every minute
