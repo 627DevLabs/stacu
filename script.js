@@ -1,5 +1,20 @@
 const targetDate = new Date("March 29, 2026 00:00:00");
+const slider = document.querySelector(".slider");
+const btn = document.getElementById("toggleBtn");
 
+let isHorizontal = false;
+
+btn.addEventListener("click", () => {
+  isHorizontal = !isHorizontal;
+
+  if (isHorizontal) {
+    slider.classList.add("horizontal");
+    btn.innerText = "Switch to Vertical";
+  } else {
+    slider.classList.remove("horizontal");
+    btn.innerText = "Switch to Horizontal";
+  }
+});
 function updateCountdown() {
   const now = new Date();
   const diff = targetDate - now;
