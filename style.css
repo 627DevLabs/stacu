@@ -5,38 +5,49 @@ body {
   color: white;
 }
 
-/* HERO LAYOUT */
+/* MAIN LAYOUT */
 .hero {
   min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* CENTER vertically */
-  align-items: center;       /* CENTER horizontally */
-  text-align: center;
 
-  gap: 40px;
+  justify-content: center; /* mainAxisAlignment center */
+  align-items: flex-start; /* crossAxisAlignment start */
+
   padding: 20px;
+  box-sizing: border-box;
 }
 
-/* TITLE */
-.hero-title h1 {
-  font-size: 56px;
+/* TOP (START ALIGNED) */
+.top {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.top h1 {
+  font-size: 52px;
   margin: 0;
-  letter-spacing: 4px;
 }
 
-.hero-title p {
+.top p {
   font-size: 18px;
   opacity: 0.8;
-  margin-top: 10px;
+  margin-top: 8px;
+}
+
+/* MIDDLE (TAKES SPACE LIKE Expanded()) */
+.middle {
+  flex: 1;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* SCENE */
 .scene {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   perspective: 1200px;
 }
 
@@ -80,8 +91,6 @@ body {
   box-shadow:
     0 15px 40px rgba(0,0,0,0.6),
     0 0 25px rgba(108,92,231,0.25);
-
-  transition: 0.3s;
 }
 
 /* IMAGE */
@@ -91,30 +100,15 @@ body {
   object-fit: cover;
 }
 
-/* HOVER */
-.slider:hover {
-  animation-play-state: paused;
-}
-
-.card:hover {
-  transform: scale(1.07);
-}
-
-/* GLOW */
-.slider::after {
-  content: "";
-  position: absolute;
-  width: 240px;
-  height: 60px;
-  background: radial-gradient(circle, #6c5ce7, transparent);
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  filter: blur(35px);
-}
-
 /* CTA */
-.cta button {
+.bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bottom button {
   padding: 14px 28px;
   border-radius: 30px;
   border: none;
@@ -124,23 +118,31 @@ body {
   font-weight: bold;
 }
 
-/* 📱 MOBILE (KEEP STRONG VISUALS) */
+/* FOOTER */
+.footer {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 15px;
+}
+
+/* HOVER */
+.slider:hover {
+  animation-play-state: paused;
+}
+
+/* 📱 MOBILE (DO NOT SHRINK TOO MUCH) */
 @media (max-width: 600px) {
 
-  .hero {
-    gap: 30px;
+  .top h1 {
+    font-size: 40px;
   }
 
-  /* DO NOT shrink too much */
-  .hero-title h1 {
-    font-size: 42px;
-  }
-
-  .hero-title p {
+  .top p {
     font-size: 16px;
   }
 
-  /* Keep slider impactful */
   .slider {
     width: 220px;
     height: 220px;
