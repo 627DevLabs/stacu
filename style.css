@@ -144,38 +144,75 @@ body {
 }
 
 /* 📱 MOBILE */
+/* 📱 MOBILE CLEAN VERSION */
 @media (max-width: 600px) {
 
+  /* Layout spacing */
+  .hero {
+    justify-content: space-between;
+    padding: 15px;
+  }
+
+  /* TEXT (keep strong but balanced) */
   .top h1 {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   .top p {
-    font-size: 16px;
+    font-size: 15px;
   }
 
-  /* 🔥 KEEP SIZE STRONG */
+  /* CENTER AREA FIT */
+  .middle {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* REMOVE TILT */
   .slider {
-    width: 260px;
-    height: 260px;
+    width: 200px;
+    height: 200px;
 
-    /* 🔥 VERTICAL TILT */
-    transform: rotateY(10deg);
+    transform: none; /* ❌ remove tilt */
 
-    animation: spinVertical 22s linear infinite;
+    animation: spinVertical 20s linear infinite;
   }
 
-  /* 🔥 VERTICAL SPIN */
+  /* VERTICAL SPIN */
   @keyframes spinVertical {
-    from { transform: rotateY(10deg) rotateX(0deg); }
-    to { transform: rotateY(10deg) rotateX(360deg); }
+    from { transform: rotateX(0deg); }
+    to { transform: rotateX(360deg); }
   }
 
-  /* REPOSITION */
+  /* 🔥 BRING CARDS CLOSER */
   .slider span {
     transform:
       rotateX(calc(var(--i) * 60deg))
-      translateZ(320px);
+      translateZ(220px); /* smaller radius */
+  }
+
+  /* CARD SIZE */
+  .card {
+    border-radius: 14px;
+  }
+
+  /* COUNTDOWN */
+  .countdown h2 {
+    font-size: 22px;
+  }
+
+  /* CTA */
+  .bottom button {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  /* FOOTER */
+  .footer {
+    font-size: 10px;
+    margin-top: 5px;
   }
 
 }
