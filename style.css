@@ -243,5 +243,12 @@ body {
     text-align: center;
     font-size: 11px;
   }
-
+.countdown span {
+  background: #1e293b;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0 5px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(108,92,231,0.3);
+}
 }
