@@ -1,90 +1,75 @@
-body{
-    margin:0;
-    background:#0f172a;
-    font-family:Arial;
-    color:white;
+/* SCENE */
+.scene {
+  perspective: 1200px;
 }
 
-/* HERO LAYOUT */
+/* SLIDER = THE RING */
+.slider {
+  position: relative;
+  width: 260px;
+  height: 260px;
 
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:center;
-    padding:40px 0;
+  transform-style: preserve-3d;
+  animation: spin 18s linear infinite;
 }
 
-/* TITLE */
-
-.hero-title{
-    text-align:center;
+/* SMOOTH ROTATION */
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
-.hero-title h1{
-    font-size:60px;
-    margin:0;
+/* POSITION ITEMS IN PERFECT CIRCLE */
+.slider span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  transform:
+    rotateY(calc(var(--i) * 60deg))
+    translateZ(320px);
 }
 
-.hero-title p{
-    opacity:.7;
+/* CARD */
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #111;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    0 0 20px rgba(108,92,231,0.2);
 }
 
-/* 3D SCENE */
-
-.scene{
-    perspective:1000px;
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* SLIDER */
-
-.slider{
-    width:250px;
-    height:250px;
-    position:relative;
-    transform-style:preserve-3d;
-    animation:spin 20s linear infinite;
+/* ✨ HOVER = PAUSE */
+.slider:hover {
+  animation-play-state: paused;
 }
 
-/* ROTATION */
-
-@keyframes spin{
-    from{transform:rotateY(0deg);}
-    to{transform:rotateY(360deg);}
+/* ✨ CARD HOVER POP */
+.card:hover {
+  transform: scale(1.08);
+  transition: 0.3s;
 }
 
-/* CARDS POSITION */
-
-.slider span{
-    position:absolute;
-    width:100%;
-    height:100%;
-    transform:
-        rotateY(calc(var(--i) * 60deg))
-        translateZ(320px);
-}
-
-/* CARD STYLE */
-
-.card{
-    width:100%;
-    height:100%;
-    background:linear-gradient(135deg,#1e293b,#334155);
-    border-radius:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-}
-
-/* CTA */
-
-.cta button{
-    padding:12px 25px;
-    border-radius:25px;
-    border:none;
-    background:linear-gradient(135deg,#6c5ce7,#fd79a8);
-    color:white;
-    font-weight:bold;
+/* ✨ GLOW UNDER */
+.slider::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 50px;
+  background: radial-gradient(circle, #6c5ce7, transparent);
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(30px);
 }
