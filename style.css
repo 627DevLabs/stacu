@@ -131,7 +131,21 @@ body {
 .slider:hover {
   animation-play-state: paused;
 }
+.countdown {
+  text-align: center;
+  margin-top: 20px;
+}
 
+.countdown p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.countdown h2 {
+  font-size: 28px;
+  margin-top: 5px;
+  color: #6c5ce7;
+}
 /* 📱 MOBILE (DO NOT SHRINK TOO MUCH) */
 @media (max-width: 600px) {
 
