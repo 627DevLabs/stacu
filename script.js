@@ -13,53 +13,25 @@ function updateCountdown() {
   }
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const seconds = Math.floor((diff / 1000) % 60);
 
+  const hours = Math.floor(
+    (diff / (1000 * 60 * 60)) % 24
+  );
+
+  const minutes = Math.floor(
+    (diff / (1000 * 60)) % 60
+  );
+
+  // ✅ Final format
   timer.innerHTML =
-    `<span>${days}d</span> : <span>${hours}h</span> : <span>${seconds}s</span>`;
+    `<span>${days}d</span> : <span>${hours}h</span> : <span>${minutes}m</span>`;
 }
 
-setInterval(updateCountdown, 1000);
+// Run immediately
 updateCountdown();
 
-
-// 📱 ORIENTATION-BASED LAYOUT CONTROL
-function updateLayout() {
-  const slider = document.getElementById("slider");
-
-  const isMobile = window.innerWidth <= 600;
-  const isPortrait = window.innerHeight > window.innerWidth;
-
-  if (isMobile && isPortrait) {
-    // 📱 Portrait → Vertical
-    slider.style.animation = "spinVertical 20s linear infinite";
-    slider.style.transform = "none";
-
-    document.querySelectorAll(".slider span").forEach((el, i) => {
-      el.style.transform =
-        `rotateX(${i * 60}deg) translateZ(220px)`;
-    });
-
-  } else {
-    // 💻 Landscape/Desktop → Horizontal
-    slider.style.animation = "spin 22s linear infinite";
-
-    document.querySelectorAll(".slider span").forEach((el, i) => {
-      el.style.transform =
-        `rotateY(${i * 60}deg) translateZ(320px)`;
-    });
-  }
-}
-
-// Vertical animation
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes spinVertical {
-  from { transform: rotateX(0deg); }
-  to { transform: rotateX(360deg); }
-}`;
-document.head.appendChild(style);
+// Update every minute (no need for seconds anymore)
+setInterval(updateCountdown, 60000);
 
 // Run on load + resize
 updateLayout();
