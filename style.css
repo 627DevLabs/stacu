@@ -116,7 +116,13 @@ body {
   font-size: 28px;
   color: #6c5ce7;
 }
-
+.countdown span {
+  background: #1e293b;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin: 0 4px;
+  font-weight: bold;
+}
 /* CTA */
 .bottom {
   width: 100%;
