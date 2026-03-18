@@ -170,85 +170,29 @@ body {
 
 }
 /* 📱 MOBILE VERSION */
+/* 📱 MOBILE: CHANGE SPIN DIRECTION ONLY */
 @media (max-width: 600px) {
 
-  /* LAYOUT */
-  .hero {
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 30px;
-  }
-
-  /* TEXT (KEEP STRONG) */
-  .top h1 {
-    font-size: 42px; /* NOT too small */
-  }
-
-  .top p {
-    font-size: 16px;
-  }
-
-  /* REMOVE 3D EFFECT */
-  .scene {
-    perspective: none;
-    width: 100%;
-  }
-
+  /* Keep same size */
   .slider {
-    animation: none; /* stop spinning */
-    transform: none;
+    width: 260px;
+    height: 260px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    height: auto;
-    width: 100%;
+    animation: spinVertical 22s linear infinite;
   }
 
+  /* Change rotation axis */
+  @keyframes spinVertical {
+    from { transform: rotateX(0deg); }
+    to { transform: rotateX(360deg); }
+  }
+
+  /* Reposition cards vertically */
   .slider span {
-    position: relative;
-    transform: none;
-    width: 100%;
-    height: 180px;
+    transform:
+      rotateX(calc(var(--i) * 60deg))
+      translateZ(320px);
   }
 
-  /* CARDS */
-  .card {
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-  }
-
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* MAKE IT SCROLLABLE */
-  .middle {
-    overflow-y: auto;
-    width: 100%;
-  }
-
-  /* CTA */
-  .bottom {
-    margin-top: 20px;
-    justify-content: center;
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    font-size: 11px;
-  }
-.countdown span {
-  background: #1e293b;
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin: 0 5px;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(108,92,231,0.3);
 }
 }
