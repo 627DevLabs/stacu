@@ -143,75 +143,71 @@ body {
   margin-top: 10px;
 }
 
-/* 📱 MOBILE CLEAN VERSION */
+/* 📱 MOBILE BASE (DO NOT SHRINK TOO MUCH) */
 @media (max-width: 600px) {
 
-  /* Layout spacing */
-  .hero {
-    justify-content: space-between;
-    padding: 15px;
-  }
-
-  /* TEXT (keep strong but balanced) */
   .top h1 {
-    font-size: 38px;
+    font-size: 40px;
   }
 
   .top p {
-    font-size: 15px;
+    font-size: 16px;
   }
 
-  /* CENTER AREA FIT */
-  .middle {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* REMOVE TILT */
+  /* Keep slider strong */
   .slider {
-    width: 200px;
-    height: 200px;
-
-    transform: none; /* ❌ remove tilt */
-
-    animation: spinVertical 20s linear infinite;
+    width: 240px;
+    height: 240px;
   }
 
-  /* VERTICAL SPIN */
+}
+
+/* 📱 PORTRAIT MODE → VERTICAL SLIDER */
+@media (max-width: 600px) and (orientation: portrait) {
+
+  .slider {
+    animation: spinVertical 22s linear infinite;
+    transform: none;
+  }
+
   @keyframes spinVertical {
     from { transform: rotateX(0deg); }
     to { transform: rotateX(360deg); }
   }
 
-  /* 🔥 BRING CARDS CLOSER */
   .slider span {
     transform:
       rotateX(calc(var(--i) * 60deg))
-      translateZ(220px); /* smaller radius */
+      translateZ(220px);
   }
 
-  /* CARD SIZE */
-  .card {
-    border-radius: 14px;
+}
+
+/* 📱 LANDSCAPE MODE → NORMAL HORIZONTAL BUT FIT SCREEN */
+@media (max-width: 600px) and (orientation: landscape) {
+
+  .hero {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
-  /* COUNTDOWN */
-  .countdown h2 {
-    font-size: 22px;
+  .top {
+    text-align: center;
   }
 
-  /* CTA */
-  .bottom button {
-    padding: 12px 22px;
-    font-size: 14px;
+  .slider {
+    width: 200px;
+    height: 200px;
+
+    animation: spin 20s linear infinite;
+    transform: none;
   }
 
-  /* FOOTER */
-  .footer {
-    font-size: 10px;
-    margin-top: 5px;
+  .slider span {
+    transform:
+      rotateY(calc(var(--i) * 60deg))
+      translateZ(180px);
   }
 
 }
