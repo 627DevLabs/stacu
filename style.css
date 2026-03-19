@@ -147,17 +147,14 @@ body {
 /* 🔥 GOOGLE PLAY LOGO (FIXED) */
 /* GOOGLE PLAY LOGO */
 .play-row img {
-  height: 32px;   /* 🔥 balanced size */
-  width: auto;    /* keep proportions */
+  height: 200px;   /* 🔥 balanced size */
+  width: 300px;    /* keep proportions */
   object-fit: contain;
 
   transition: 0.2s;
 }
 
-/* OPTIONAL HOVER */
-.play-row img:hover {
-  transform: scale(1.05);
-}
+
 
 .play-row img:hover {
   transform: scale(1.08);
