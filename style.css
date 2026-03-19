@@ -147,8 +147,8 @@ body {
 /* 🔥 GOOGLE PLAY LOGO (FIXED) */
 /* GOOGLE PLAY LOGO */
 .play-row img {
-  height: 200px;   /* 🔥 balanced size */
-  width: 300px;    /* keep proportions */
+  height:20px;   /* 🔥 balanced size */
+  width: 30px;    /* keep proportions */
   object-fit: contain;
 
   transition: 0.2s;
