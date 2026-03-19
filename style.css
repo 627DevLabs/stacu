@@ -135,7 +135,7 @@ body {
   justify-content: center;
 
   gap: 5px; /* space between text & logo */
-  margin-top: 8px;
+ 
 }
 
 /* TEXT */
@@ -173,7 +173,10 @@ body {
   padding: 10px 20px 20px; /* 🔥 less top padding */
   margin-top: -10px; /* 🔥 pull upward */
 }
-
+.showcase {
+  margin-top: 0;      /* 🔥 remove extra space */
+  padding-top: 0;     /* 🔥 prevent hidden gap */
+}
 .showcase img {
   width: 100%;
   max-width: 500px;
