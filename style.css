@@ -134,7 +134,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  gap: 14px; /* space between text & logo */
+  gap: 5px; /* space between text & logo */
   margin-top: 8px;
 }
 
