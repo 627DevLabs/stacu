@@ -148,7 +148,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* space between text & logo */
+  gap: 12px; /* space between text & logo */
 
   margin-top: 6px;
 }
@@ -160,12 +160,11 @@ body {
 }
 
 /* LOGO */
+/* BIGGER GOOGLE PLAY LOGO */
 .play-row img {
-  height: 26px; /* consistent size */
+ height: 48px;   /* 🔥 extra bold */
+  width: auto;
   object-fit: contain;
-}
-.play-row img {
-  filter: drop-shadow(0 0 6px rgba(108,92,231,0.4));
 }
 /* ================= SHOWCASE ================= */
 
