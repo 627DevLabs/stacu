@@ -161,11 +161,7 @@ body {
 
 /* LOGO */
 /* BIGGER GOOGLE PLAY LOGO */
-.play-row img {
- height: 48px;   /* 🔥 extra bold */
-  width: auto;
-  object-fit: contain;
-}
+
 /* ================= SHOWCASE ================= */
 
 .showcase {
