@@ -33,12 +33,14 @@ body {
   opacity: 0.8;
   margin-top: 8px;
 }
-
+.top {
+  margin-bottom: 10px; /* 🔥 reduce gap */
+}
 /* ================= CAROUSEL ================= */
 
 .middle {
   position: relative;
-  z-index: 3; /* 🔥 ABOVE COUNTDOWN */
+  z-index: 3;
 
   width: 100%;
 
@@ -46,7 +48,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  margin-top: 40px;
+  margin-top: 20px; /* 🔥 reduced */
+  margin-bottom: 10px; /* 🔥 tighter spacing */
 }
 
 .scene {
@@ -114,50 +117,54 @@ body {
 
 .countdown {
   position: relative;
-  z-index: 1; /* 🔥 BELOW CAROUSEL */
+  z-index: 1;
 
   width: 100%;
   text-align: center;
 
-  margin-top: -70px; /* 🔥 PULL INTO CAROUSEL */
-
-  opacity: 0.6;
-  filter: blur(0.6px);
+  margin-top: 20px; /* 🔥 BELOW carousel */
+  opacity: 1; /* 🔥 fully visible */
+  filter: none; /* 🔥 remove blur */
 }
 
+/* BIGGER COUNTDOWN */
+.countdown h2 {
+  font-size: 36px; /* 🔥 bigger */
+  color: #6c5ce7;
+  letter-spacing: 2px;
+}
 /* TEXT */
 .countdown-title {
   font-size: 14px;
   opacity: 0.7;
 }
 
-.countdown h2 {
-  font-size: 28px;
-  color: #6c5ce7;
-  letter-spacing: 2px;
+
+
+.play-text {
+  margin-top: 6px; /* 🔥 closer */
+  margin-bottom: 2px;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
-/* GOOGLE PLAY */
-.play-text {
-  margin-top: 10px;
-  font-size: 14px;
-  opacity: 0.8;
+.play-badge {
+  margin-top: 0; /* 🔥 remove gap */
 }
 
 .play-badge img {
-  width: 140px;
-  margin-top: 8px;
+  width: 130px;
 }
 
 /* ================= SHOWCASE ================= */
-
 .showcase {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-}
+  gap: 16px; /* 🔥 slightly tighter */
 
+  padding: 10px 20px 20px; /* 🔥 less top padding */
+  margin-top: -10px; /* 🔥 pull upward slightly */
+}
 .showcase img {
   width: 100%;
   max-width: 500px;
