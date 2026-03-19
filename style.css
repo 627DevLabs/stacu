@@ -128,35 +128,30 @@ body {
 }
 
 /* GOOGLE PLAY TEXT */
-.play-text {
-  font-size: 14px;
-  margin: 4px 0 2px; /* 🔥 tight */
-  opacity: 0.9;
-}
-
-/* BADGE */
-.play-badge {
-  margin-top: 0;
-}
-
-.play-badge img {
-  width: 130px;
-  height: 200px;
-}
-/* 🔥 ROW ALIGNMENT */
+/* 🔥 PLAY ROW (CLEAN + CENTERED) */
 .play-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px; /* space between text & logo */
 
-  margin-top: 6px;
+  gap: 14px; /* space between text & logo */
+  margin-top: 8px;
 }
 
 /* TEXT */
 .play-row span {
-  font-size: 14px;
+  font-size: 15px;
   opacity: 0.9;
+}
+
+/* 🔥 GOOGLE PLAY LOGO (FIXED) */
+.play-row img {
+  height: 50px;
+  transition: 0.3s;
+}
+
+.play-row img:hover {
+  transform: scale(1.08);
 }
 
 /* LOGO */
