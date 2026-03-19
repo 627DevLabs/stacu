@@ -139,3 +139,27 @@ body {
   opacity: 0.5;
   padding: 10px;
 }
+/* COUNTDOWN TEXT */
+.countdown-title {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+/* GOOGLE PLAY TEXT */
+.play-text {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* PLAY BADGE */
+.play-badge {
+  margin-top: 8px;
+}
+
+.play-badge img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
