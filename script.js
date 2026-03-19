@@ -14,7 +14,32 @@ function updateCountdown() {
   document.getElementById("timerTop").innerText = text;
   document.getElementById("timerBottom").innerText = text;
 }
+// 🔥 MODAL LOGIC
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".close");
 
+// SELECT ALL IMAGES (slider + showcase)
+const images = document.querySelectorAll(".card img, .showcase img");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+// CLOSE BUTTON
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+};
+
+// CLICK OUTSIDE TO CLOSE
+modal.onclick = (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+};
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
