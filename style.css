@@ -38,7 +38,7 @@ body {
 
 .middle {
   position: relative;
-  z-index: 3; /* 🔥 ABOVE COUNTDOWN */
+  z-index: 0; /* 🔥 ABOVE COUNTDOWN */
 
   width: 100%;
 
@@ -114,7 +114,7 @@ body {
 
 .countdown {
   position: relative;
-  z-index: 1; /* 🔥 BELOW CAROUSEL */
+  z-index: 0; /* 🔥 BELOW CAROUSEL */
 
   width: 100%;
   text-align: center;
