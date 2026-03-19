@@ -143,7 +143,30 @@ body {
   width: 130px;
   height: auto;
 }
+/* 🔥 ROW ALIGNMENT */
+.play-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* space between text & logo */
 
+  margin-top: 6px;
+}
+
+/* TEXT */
+.play-row span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* LOGO */
+.play-row img {
+  height: 26px; /* consistent size */
+  object-fit: contain;
+}
+.play-row img {
+  filter: drop-shadow(0 0 6px rgba(108,92,231,0.4));
+}
 /* ================= SHOWCASE ================= */
 
 .showcase {
