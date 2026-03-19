@@ -1,8 +1,8 @@
 body {
   margin: 0;
   background: #0f172a;
-  font-family: Arial;
   color: white;
+  font-family: Arial;
 }
 
 /* HERO */
@@ -10,73 +10,39 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 20px;
 }
 
-/* TOP */
-.top h1 {
-  font-size: 52px;
-  margin: 0;
-}
+.top h1 { font-size: 52px; margin: 0; }
+.top p { opacity: 0.7; }
 
-.top p {
-  font-size: 18px;
-  opacity: 0.8;
-}
-
-/* SLIDER CENTER */
-.middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 3D */
-.scene {
-  perspective: 1200px;
-}
+/* SLIDER */
+.scene { perspective: 1200px; }
 
 .slider {
   width: 260px;
   height: 260px;
   transform-style: preserve-3d;
-  animation: spin 22s linear infinite;
+  animation: spin 20s linear infinite;
 }
 
 @keyframes spin {
-  from { transform: rotateX(10deg) rotateY(0deg); }
-  to { transform: rotateX(10deg) rotateY(360deg); }
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
 .slider span {
   position: absolute;
   width: 100%;
   height: 100%;
-  transform:
-    rotateY(calc(var(--i) * 60deg))
-    translateZ(320px);
 }
 
 .card img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
+  border-radius: 15px;
 }
 
-/* COUNTDOWN */
-.countdown {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.countdown h2 {
-  font-size: 28px;
-  color: #6c5ce7;
-}
-
-/* 🔥 SHOWCASE IMAGES */
+/* SHOWCASE */
 .showcase {
   display: flex;
   flex-direction: column;
@@ -87,73 +53,47 @@ body {
 .showcase img {
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin: auto;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* 🔥 FINAL COUNTDOWN */
-.final-countdown {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.final-countdown h1 {
-  font-size: 60px;
-  color: #fd79a8;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.5;
-  padding: 10px;
-}
-
-/* 📱 MOBILE */
-@media (max-width: 600px) {
-
-  .top h1 {
-    font-size: 40px;
-  }
-
-  .final-countdown h1 {
-    font-size: 42px;
-  }
-
-}
-/* 🔥 MODAL BACKGROUND */
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
-  z-index: 9999;
-
-  left: 0;
-  top: 0;
+  z-index: 999;
   width: 100%;
   height: 100%;
-
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.95);
 
   justify-content: center;
   align-items: center;
 }
 
-/* IMAGE */
-.modal-content {
+.modal img {
   max-width: 90%;
-  max-height: 85%;
-  border-radius: 10px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  max-height: 80%;
 }
 
-/* CLOSE BUTTON */
 .close {
   position: absolute;
   top: 20px;
   right: 30px;
   font-size: 30px;
+  cursor: pointer;
+}
+
+/* NAV */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  background: none;
+  border: none;
   color: white;
   cursor: pointer;
 }
+
+.prev { left: 20px; }
+.next { right: 20px; }
