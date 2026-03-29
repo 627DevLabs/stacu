@@ -1,89 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>STACU</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STACU Galaxy</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
+}
+
+/* ================= BACKGROUND ================= */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('img/bbv.png') center/contain no-repeat;
+
+  transform: scale(0.05);
+  opacity: 0;
+
+  animation: bgZoom 3s ease forwards;
+}
+
+@keyframes bgZoom {
+  0% { transform: scale(0.05); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1); opacity: 0.95; }
+}
+
+/* ================= SCENE ================= */
+.scene {
+  perspective: 1200px;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* TITLE */
+.title {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.subtitle {
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ================= CARD ================= */
+.card {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateZ(-1000px) scale(0.2);
+}
+
+/* ICON */
+.card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #f59e0b;
+}
+
+/* TEXT */
+.card span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ================= ANIMATION ================= */
+.card.animate {
+  animation: flyGroup 4s ease forwards;
+}
+
+@keyframes flyGroup {
+  0% {
+    transform: translateZ(-1000px) scale(0.2);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateZ(400px) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateZ(900px) scale(1.5);
+    opacity: 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<section class="hero">
+<div class="bg"></div>
 
-  <div class="top">
-    <h1>STACU</h1>
-    <p>The Operating System for Everyday AI</p>
-  </div>
-
-  <!-- 🔥 ORIGINAL 3D SLIDER (UNCHANGED) -->
-  <div class="middle">
-    <div class="scene">
-      <div class="slider">
-
-        <span style="--i:0"><div class="card"><img src="img/img1.png"></div></span>
-        <span style="--i:1"><div class="card"><img src="img/img2.png"></div></span>
-        <span style="--i:2"><div class="card"><img src="img/img3.png"></div></span>
-        <span style="--i:3"><div class="card"><img src="img/img4.png"></div></span>
-        <span style="--i:4"><div class="card"><img src="img/img5.png"></div></span>
-        <span style="--i:5"><div class="card"><img src="img/img6.png"></div></span>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- COUNTDOWN -->
-  <!-- COUNTDOWN -->
-<div class="countdown">
-
-  <p class="countdown-title">Time remaining to Launch</p>
-
-  <h2 id="timerTop">Loading...</h2>
-
- <div class="play-row">
-  <span>Coming soon to</span>
-  <img src="img/gplay.png" alt="Google Play">
+<div class="scene" id="scene">
+  <div class="title">STACU</div>
+  <div class="subtitle">Something That Anyone Can Use</div>
 </div>
 
-</div>
+<script>
+const scene = document.getElementById("scene");
 
-</section>
+/* SERVICES */
+const services = [
+  { name: "Mechanic", icon: "fa-wrench" },
+  { name: "Doctor", icon: "fa-user-doctor" },
+  { name: "Salon", icon: "fa-scissors" },
+  { name: "Taxi", icon: "fa-taxi" },
+  { name: "Car Wash", icon: "fa-car" },
+  { name: "Electrician", icon: "fa-bolt" },
+  { name: "Plumber", icon: "fa-toolbox" },
+  { name: "Shop", icon: "fa-store" },
+  { name: "Security", icon: "fa-shield-halved" },
+  { name: "Delivery", icon: "fa-truck" },
+  { name: "Teacher", icon: "fa-chalkboard-user" },
+  { name: "Farmer", icon: "fa-tractor" }
+];
 
-<!-- 🔥 SHOWCASE -->
-<section class="showcase">
+/* CREATE CARD */
+function createCard(service) {
+  const card = document.createElement("div");
+  card.className = "card";
 
-  <img src="img/stacu1.png">
-  <img src="img/stacu2.png">
-  <img src="img/stacu3.png">
-  <img src="img/stacu4.png">
-  <img src="img/stacu7.png">
-  <img src="img/stacu8.png">
-  <img src="img/stacu9.png">
-  <img src="img/stacu10.png">
-  <img src="img/stacu11.png">
-  <img src="img/stacu12.png">
+  const icon = document.createElement("i");
+  icon.className = "fa-solid " + service.icon;
 
-</section>
+  const text = document.createElement("span");
+  text.innerText = service.name;
 
-<!-- 🔥 BIG COUNTDOWN -->
-<section class="final-countdown">
-  <h1 id="timerBottom">Loading...</h1>
-</section>
+  card.appendChild(icon);
+  card.appendChild(text);
 
-<!-- 🔥 MODAL SLIDER -->
-<div id="modal" class="modal">
-  <span class="close">&times;</span>
+  scene.appendChild(card);
+  return card;
+}
 
-  <img id="modalImage" class="modal-img">
+/* BUILD CARDS */
+const cards = services.map(createCard);
 
-  <button class="nav prev">&#10094;</button>
-  <button class="nav next">&#10095;</button>
-</div>
+/* RANDOM POSITION */
+function positionCard(card) {
+  card.style.left = Math.random() * 90 + "vw";
+  card.style.top = Math.random() * 90 + "vh";
+}
 
-<div class="footer">
-  © 2026 (c) 627 Cooperations... til the job is done
-</div>
+/* RUN GROUP */
+function runGroup(start, size) {
+  const group = cards.slice(start, start + size);
 
-<script src="script.js"></script>
+  group.forEach(card => {
+    positionCard(card);
+    card.classList.remove("animate");
+    void card.offsetWidth;
+    card.classList.add("animate");
+  });
+}
+
+/* SEQUENCE CONTROLLER */
+function startSequence() {
+  let index = 0;
+  const groupSize = 4;
+
+  function nextGroup() {
+    runGroup(index, groupSize);
+
+    index += groupSize;
+    if (index >= cards.length) index = 0;
+
+    setTimeout(nextGroup, 5000); // 4s animation + 1s pause
+  }
+
+  nextGroup();
+}
+
+/* START AFTER BACKGROUND */
+setTimeout(startSequence, 3000); // wait for bg + pause
+
+</script>
 
 </body>
 </html>
